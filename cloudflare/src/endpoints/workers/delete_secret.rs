@@ -4,16 +4,16 @@ use crate::framework::endpoint::{Endpoint, Method};
 
 /// Delete Secret
 /// https://api.cloudflare.com/#worker-delete-secret
-pub struct DeleteSecret<'a> {
-    /// account id of owner of the script
-    pub account_identifier: &'a str,
-    /// the name of the script to remove the secret from
-    pub script_name: &'a str,
-    /// the variable name of the secret
-    pub secret_name: &'a str,
+pub struct DeleteSecret {
+    /// Account ID of script owner
+    pub account_identifier: &'static str,
+    /// The name of the script to remove the secret from
+    pub script_name: &'static str,
+    /// The variable name of the secret
+    pub secret_name: &'static str,
 }
 
-impl<'a> Endpoint<WorkersSecret> for DeleteSecret<'a> {
+impl Endpoint<WorkersSecret> for DeleteSecret {
     fn method(&self) -> Method {
         Method::Delete
     }

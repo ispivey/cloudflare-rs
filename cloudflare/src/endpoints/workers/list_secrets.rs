@@ -5,12 +5,12 @@ use crate::framework::endpoint::{Endpoint, Method};
 /// List Secrets
 /// Lists all secrets mappings for a given script
 /// https://api.cloudflare.com/#worker-secrets-list-secrets
-pub struct ListSecrets<'a> {
-    pub account_identifier: &'a str,
-    pub script_name: &'a str,
+pub struct ListSecrets {
+    pub account_identifier: &'static str,
+    pub script_name: &'static str,
 }
 
-impl<'a> Endpoint<Vec<WorkersSecret>> for ListSecrets<'a> {
+impl Endpoint<Vec<WorkersSecret>> for ListSecrets {
     fn method(&self) -> Method {
         Method::Get
     }
